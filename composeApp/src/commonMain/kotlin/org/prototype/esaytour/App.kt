@@ -1,6 +1,7 @@
 package org.prototype.esaytour
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.safeContentPadding
@@ -10,8 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import org.prototype.esaytour.component.analytics.AnalyticsComposable
 import org.prototype.esaytour.component.contentBar.ContentBarComposable
+import org.prototype.esaytour.component.recentActivities.RecentActivitiesComposable
 import org.prototype.esaytour.component.titleBar.TitleBarComposable
 import org.prototype.esaytour.component.topBar.TopBarComposable
 import org.prototype.esaytour.theme.Colors.PrimaryColorGradiantFour
@@ -47,7 +50,12 @@ fun App() {
                 TopBarComposable()
             }
             ContentBarComposable {
-                AnalyticsComposable()
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(24.dp),
+                ) {
+                    AnalyticsComposable()
+                    RecentActivitiesComposable()
+                }
             }
         }
     }

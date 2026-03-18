@@ -38,7 +38,7 @@ fun ContentBarComposable(
                 )
             )
             .padding(
-                horizontal = 36.dp,
+                horizontal = 16.dp,
                 vertical = 36.dp
             )
     ) {

@@ -21,4 +21,5 @@ object Colors {
     val ActiveBarTwoColor = Color(0xFF429EFF)
     val ActiveBarThreeColor = Color(0xFF88B6E7)
     val ActiveBarTextColor = Color(0xFFA9A9A9)
+    val ActiveBarIconColor = Color(0xFFDEE4F3)
 }
