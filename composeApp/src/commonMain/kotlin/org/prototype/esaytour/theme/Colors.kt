@@ -30,4 +30,5 @@ object Colors {
     val ActiveTourBarRejectTextColor = Color(0xFFD02020)
     val ActiveTourBarPendingColor = Color(0xFFFCF0E8)
     val ActiveTourBarPendingTextColor = Color(0xFFD08020)
+    val BottomBarContainerColor = Color(0xFF4061A1)
 }

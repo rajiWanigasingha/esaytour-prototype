@@ -29,10 +29,13 @@ import androidx.compose.ui.unit.sp
 import esaytour.composeapp.generated.resources.Res
 import esaytour.composeapp.generated.resources.airplane
 import esaytour.composeapp.generated.resources.dollar
+import esaytour.composeapp.generated.resources.pending
 import esaytour.composeapp.generated.resources.profilePic
 import esaytour.composeapp.generated.resources.scan
 import esaytour.composeapp.generated.resources.settings
+import esaytour.composeapp.generated.resources.started
 import esaytour.composeapp.generated.resources.today
+import esaytour.composeapp.generated.resources.upcoming
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.prototype.esaytour.theme.Colors.PrimaryColorGradiantFour
@@ -52,20 +55,20 @@ fun TopBarComposable() {
 
     val menuList = listOf(
         MenuListSchema(
-            title = "Today",
+            title = "Resent",
             icon = Res.drawable.today,
         ),
         MenuListSchema(
-            title = "Expenses",
-            icon = Res.drawable.dollar,
+            title = "Started",
+            icon = Res.drawable.started,
         ),
         MenuListSchema(
-            title = "Activities",
-            icon = Res.drawable.airplane,
+            title = "Confirmed",
+            icon = Res.drawable.upcoming,
         ),
         MenuListSchema(
-            title = "Scan",
-            icon = Res.drawable.scan,
+            title = "Pending",
+            icon = Res.drawable.pending,
         ),
     )
 
