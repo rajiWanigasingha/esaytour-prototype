@@ -19,6 +19,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -32,6 +35,8 @@ import esaytour.composeapp.generated.resources.settings
 import esaytour.composeapp.generated.resources.today
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
+import org.prototype.esaytour.theme.Colors.PrimaryColorGradiantFour
+import org.prototype.esaytour.theme.Colors.PrimaryColorGradiantOne
 import org.prototype.esaytour.theme.Colors.PrimaryTextColor
 import org.prototype.esaytour.theme.Colors.PrimaryTextGradiantColor
 import org.prototype.esaytour.theme.Colors.PrimaryTextVariantColor
@@ -67,7 +72,24 @@ fun TopBarComposable() {
     Column {
         Row(
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .drawBehind {
+                    drawCircle(
+                        color = Color.White.copy(alpha = 0.2f),
+                        radius = 100.dp.toPx(),
+                        center = Offset(size.width + 250f, -250f)
+                    )
+                    drawCircle(
+                        color = Color.White.copy(alpha = 0.2f),
+                        radius = 150.dp.toPx(),
+                        center = Offset(size.width + 250f, -250f)
+                    )
+                    drawCircle(
+                        color = PrimaryColorGradiantOne.copy(alpha = 0.6f),
+                        radius = 250.dp.toPx(),
+                        center = Offset(size.width + 300f, -300f)
+                    )
+                },
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
