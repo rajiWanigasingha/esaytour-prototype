@@ -24,17 +24,47 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import esaytour.composeapp.generated.resources.Res
+import esaytour.composeapp.generated.resources.airplane
+import esaytour.composeapp.generated.resources.dollar
 import esaytour.composeapp.generated.resources.profilePic
+import esaytour.composeapp.generated.resources.scan
 import esaytour.composeapp.generated.resources.settings
+import esaytour.composeapp.generated.resources.today
+import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.prototype.esaytour.theme.Colors.PrimaryTextColor
 import org.prototype.esaytour.theme.Colors.PrimaryTextGradiantColor
 import org.prototype.esaytour.theme.Colors.PrimaryTextVariantColor
 
+data class MenuListSchema(
+    val title: String,
+    val icon: DrawableResource,
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBarComposable() {
-    Row {
+
+    val menuList = listOf(
+        MenuListSchema(
+            title = "Today",
+            icon = Res.drawable.today,
+        ),
+        MenuListSchema(
+            title = "Expenses",
+            icon = Res.drawable.dollar,
+        ),
+        MenuListSchema(
+            title = "Activities",
+            icon = Res.drawable.airplane,
+        ),
+        MenuListSchema(
+            title = "Scan",
+            icon = Res.drawable.scan,
+        ),
+    )
+
+    Column {
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
@@ -98,6 +128,18 @@ fun TopBarComposable() {
                         )
                     }
                 }
+            }
+        }
+        Spacer(modifier = Modifier.height(32.dp))
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ){
+            menuList.forEach { menu ->
+                TopBarActionButtonComposable(
+                    resource = menu.icon,
+                    text = menu.title
+                )
             }
         }
     }
