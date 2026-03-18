@@ -23,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.prototype.esaytour.theme.Colors.ActiveBarOneColor
 import org.prototype.esaytour.theme.Colors.ActiveBarTextColor
+import org.prototype.esaytour.theme.Colors.ActiveBarThreeColor
+import org.prototype.esaytour.theme.Colors.ActiveBarTwoColor
 import org.prototype.esaytour.theme.Colors.CardContainerColor
 import org.prototype.esaytour.theme.Colors.OnCardContainerColor
 
@@ -40,7 +42,10 @@ fun AnalyticsComposable() {
     ) {
         Column(
             modifier = Modifier
-                .padding(16.dp),
+                .padding(
+                    vertical = 16.dp,
+                    horizontal = 20.dp
+                ),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Text(
@@ -55,7 +60,10 @@ fun AnalyticsComposable() {
                     completed = ((19f / 51f) * 100f)
                 )
             }
-            Row {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Column {
                     Row(
                         verticalAlignment = Alignment.CenterVertically
@@ -69,7 +77,7 @@ fun AnalyticsComposable() {
                                     shape = RoundedCornerShape(50)
                                 )
                         ) {}
-                        Spacer(Modifier.width(8.dp))
+                        Spacer(Modifier.width(12.dp))
                         Row(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -81,6 +89,72 @@ fun AnalyticsComposable() {
                             Spacer(Modifier.width(24.dp))
                             Text(
                                 text = "21",
+                                fontSize = 16.sp,
+                                color = ActiveBarTextColor
+                            )
+                        }
+                    }
+                }
+                Column {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .width(12.dp)
+                                .height(12.dp)
+                                .background(
+                                    color = ActiveBarTwoColor,
+                                    shape = RoundedCornerShape(50)
+                                )
+                        ) {}
+                        Spacer(Modifier.width(12.dp))
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "Upcoming",
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.SemiBold,
+                            )
+                            Spacer(Modifier.width(24.dp))
+                            Text(
+                                text = "20",
+                                fontSize = 16.sp,
+                                color = ActiveBarTextColor
+                            )
+                        }
+                    }
+                }
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Column {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .width(12.dp)
+                                .height(12.dp)
+                                .background(
+                                    color = ActiveBarThreeColor,
+                                    shape = RoundedCornerShape(50)
+                                )
+                        ) {}
+                        Spacer(Modifier.width(12.dp))
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "Completed",
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.SemiBold,
+                            )
+                            Spacer(Modifier.width(40.dp))
+                            Text(
+                                text = "19",
                                 fontSize = 16.sp,
                                 color = ActiveBarTextColor
                             )
