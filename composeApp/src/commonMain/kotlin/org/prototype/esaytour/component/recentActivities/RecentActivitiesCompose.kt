@@ -22,6 +22,10 @@ fun RecentActivitiesComposable() {
             )
             Spacer(Modifier.height(16.dp))
             ActivityContainerComposable()
+            Spacer(Modifier.height(16.dp))
+            ActivityContainerComposable()
+            Spacer(Modifier.height(16.dp))
+            ActivityContainerComposable()
         }
     }
 }

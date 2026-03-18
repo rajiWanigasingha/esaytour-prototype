@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -28,12 +29,42 @@ import org.prototype.esaytour.theme.Colors.ActiveBarIconColor
 import org.prototype.esaytour.theme.Colors.CardContainerColor
 import org.prototype.esaytour.theme.Colors.OnCardContainerColor
 
+
+data class ActivitySchema(
+    val title: String,
+    val description: String,
+    val confirmed: Boolean?,
+)
+
 @Composable
 fun ActivityContainerComposable() {
+    val activities = listOf(
+        ActivitySchema(
+            title = "City Historical Tour",
+            description = "Visit ancient monuments and museums",
+            confirmed = true
+        ),
+        ActivitySchema(
+            title = "Beach Excursion",
+            description = "Relax and enjoy water activities",
+            confirmed = true
+        ),
+        ActivitySchema(
+            title = "Mountain Hiking",
+            description = "Explore scenic trails and viewpoints",
+            confirmed = false
+        ),
+        ActivitySchema(
+            title = "Food Tour",
+            description = "Taste local cuisine and delicacies",
+            confirmed = null
+        )
+    )
+    
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(248.dp)
+            .wrapContentHeight()
             .clip(RoundedCornerShape(20.dp)),
         colors = CardDefaults.cardColors(
             containerColor = CardContainerColor,
@@ -75,6 +106,15 @@ fun ActivityContainerComposable() {
                     fontSize = 20.sp,
                     fontWeight = FontWeight.SemiBold,
                 )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            activities.forEach { activity ->
+                TourActivitiesCardComposable(
+                    title = activity.title,
+                    description = activity.description,
+                    confirmed = activity.confirmed
+                )
+                Spacer(modifier = Modifier.height(12.dp))
             }
         }
     }

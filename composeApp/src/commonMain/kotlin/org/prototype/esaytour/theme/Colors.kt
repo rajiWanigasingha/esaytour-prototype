@@ -22,4 +22,12 @@ object Colors {
     val ActiveBarThreeColor = Color(0xFF88B6E7)
     val ActiveBarTextColor = Color(0xFFA9A9A9)
     val ActiveBarIconColor = Color(0xFFDEE4F3)
+    val ActiveTourBarColor = Color(0xFFE8F0FD)
+    val ActiveTourBarTextColor = Color(0xFF545454)
+    val ActiveTourBarConfirmColor = Color(0xFFEBFCFC)
+    val ActiveTourBarConfirmTextColor = Color(0xFF1384AD)
+    val ActiveTourBarRejectColor = Color(0xFFFCE8E8)
+    val ActiveTourBarRejectTextColor = Color(0xFFD02020)
+    val ActiveTourBarPendingColor = Color(0xFFFCF0E8)
+    val ActiveTourBarPendingTextColor = Color(0xFFD08020)
 }
