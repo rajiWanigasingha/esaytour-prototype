@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
+import org.prototype.esaytour.component.analytics.AnalyticsComposable
 import org.prototype.esaytour.component.contentBar.ContentBarComposable
 import org.prototype.esaytour.component.titleBar.TitleBarComposable
 import org.prototype.esaytour.component.topBar.TopBarComposable
@@ -45,7 +46,9 @@ fun App() {
             TitleBarComposable {
                 TopBarComposable()
             }
-            ContentBarComposable {  }
+            ContentBarComposable {
+                AnalyticsComposable()
+            }
         }
     }
 

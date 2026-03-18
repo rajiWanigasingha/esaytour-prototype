@@ -15,4 +15,10 @@ object Colors {
     val SecondaryColorGradiantOne = Color(0xFFDDE6F0)
     val SecondaryColorGradiantTwo = Color(0xFFCEDCEB)
     val SecondaryColorGradiantThree = Color(0xFFE6ECF2)
+    val CardContainerColor = Color(0xFFFFFFFF).copy(alpha = 0.75f)
+    val OnCardContainerColor = Color(0xFF2A364C)
+    val ActiveBarOneColor = Color(0xFF327BE8)
+    val ActiveBarTwoColor = Color(0xFF429EFF)
+    val ActiveBarThreeColor = Color(0xFF88B6E7)
+    val ActiveBarTextColor = Color(0xFFA9A9A9)
 }
