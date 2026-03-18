@@ -31,6 +31,9 @@ fun App() {
     Scaffold(
         modifier = Modifier
             .fillMaxSize(),
+        bottomBar = {
+
+        }
     ) {
         Column(
             modifier = Modifier

@@ -61,7 +61,7 @@ fun TopBarActionButtonComposable(
                     interactionSource = interactionSource,
                     indication = ripple(
                         bounded = true,
-                        color = Color.Black.copy(alpha = 0.1f)
+                        color = Color.White.copy(alpha = 0.1f)
                     )
                 ) {}
         ) {

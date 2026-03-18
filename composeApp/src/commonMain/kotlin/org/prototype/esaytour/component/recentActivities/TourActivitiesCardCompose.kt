@@ -1,6 +1,11 @@
 package org.prototype.esaytour.component.recentActivities
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,8 +21,14 @@ import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -40,10 +51,25 @@ fun TourActivitiesCardComposable(
     description: String,
     confirmed: Boolean?,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+//    val scale by animateFloatAsState(
+//        targetValue = if (isPressed) 0.92f else 1f,
+//        animationSpec = spring(dampingRatio = Spring.DampingRatioMediumBouncy)
+//    )
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(64.dp)
+            .clip(RoundedCornerShape(12.dp))
+            .clickable(
+                interactionSource = interactionSource,
+                indication = ripple(
+                    bounded = true,
+                    color = Color.Black.copy(alpha = 0.1f)
+                )
+            ) {}
             .background(
                 color = ActiveTourBarColor,
                 shape = RoundedCornerShape(12.dp)
@@ -74,49 +100,36 @@ fun TourActivitiesCardComposable(
                 )
             }
             Column {
-                Row {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
                     if (confirmed != null) {
                         if (confirmed) {
-                            FilterChip(
-                                colors = FilterChipDefaults.filterChipColors(
-                                    selectedContainerColor = ActiveTourBarConfirmColor,
-                                    selectedLabelColor = ActiveTourBarConfirmTextColor
-                                ),
-                                onClick = {},
-                                label = { Text("Confirmed") },
-                                selected = true,
+                            ConfirmBoxComposable(
+                                text = "Confirmed",
+                                containerColor = ActiveTourBarConfirmColor,
+                                textColor = ActiveTourBarConfirmTextColor
                             )
                         } else {
-                            FilterChip(
-                                colors = FilterChipDefaults.filterChipColors(
-                                    selectedContainerColor = ActiveTourBarRejectColor,
-                                    selectedLabelColor = ActiveTourBarRejectTextColor
-                                ),
-                                onClick = {},
-                                label = { Text("Rejected") },
-                                selected = true,
+                            ConfirmBoxComposable(
+                                text = "Rejected",
+                                containerColor = ActiveTourBarRejectColor,
+                                textColor = ActiveTourBarRejectTextColor
                             )
                         }
                     } else {
-                        FilterChip(
-                            colors = FilterChipDefaults.filterChipColors(
-                                selectedContainerColor = ActiveTourBarPendingColor,
-                                selectedLabelColor = ActiveTourBarPendingTextColor
-                            ),
-                            onClick = {},
-                            label = { Text("Pending") },
-                            selected = true,
+                        ConfirmBoxComposable(
+                            text = "Pending",
+                            containerColor = ActiveTourBarPendingColor,
+                            textColor = ActiveTourBarPendingTextColor
                         )
                     }
-                    IconButton(
-                        onClick = {  }
-                    ) {
-                        Icon(
-                            painter = painterResource(Res.drawable.goto),
-                            contentDescription = "Go To",
-                            modifier = Modifier.width(16.dp).height(16.dp)
-                        )
-                    }
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Icon(
+                        painter = painterResource(Res.drawable.goto),
+                        contentDescription = "Go To",
+                        modifier = Modifier.width(16.dp).height(16.dp)
+                    )
                 }
             }
         }
