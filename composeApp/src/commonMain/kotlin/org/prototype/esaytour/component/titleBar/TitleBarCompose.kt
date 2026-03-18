@@ -16,7 +16,7 @@ fun TitleBarComposable(
         modifier = Modifier
             .fillMaxWidth()
             .height(200.dp)
-            .padding(32.dp),
+            .padding(horizontal = 32.dp),
     ) {
         composableContent()
     }

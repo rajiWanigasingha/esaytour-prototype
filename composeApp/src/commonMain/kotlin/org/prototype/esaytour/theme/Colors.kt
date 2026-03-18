@@ -3,8 +3,9 @@ package org.prototype.esaytour.theme
 import androidx.compose.ui.graphics.Color
 
 object Colors {
-    val PrimaryColor = Color(0xFF1454B2)
-
+    val PrimaryTextColor = Color(0xFFFFFFFF)
+    val PrimaryTextGradiantColor = Color(0xFF7BB0E8)
+    val PrimaryTextVariantColor = Color(0xFFFF9442)
     val PrimaryColorGradiantOne = Color(0xFF3C5A96)
     val PrimaryColorGradiantTwo = Color(0xFF244A91)
     val PrimaryColorGradiantThree = Color(0xFF294999)
