@@ -21,7 +21,7 @@ https://github.com/user-attachments/assets/79734187-3610-45f1-97d9-8b74f01cea85
 | Home | Activity list | Activity |
 |----------|----------|----------|
 | <img width="786" height="1704" alt="Home" src="https://github.com/user-attachments/assets/0e8c4a37-fccc-42fa-ba4a-cc100a83c272" /> | <img width="782" height="1704" alt="Activity_List" src="https://github.com/user-attachments/assets/bccb343e-a9f6-41a1-a047-8a473a9a7781" /> | <img width="786" height="1704" alt="Activity" src="https://github.com/user-attachments/assets/182e9e09-f835-4bf5-92ab-a68d23e2343b" /> |
-> Recommended image size: **786 x 1704**
+>
 
 ---
 
